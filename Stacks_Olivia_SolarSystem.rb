@@ -2,15 +2,15 @@
 class SolarSystem
   attr_accessor :planets_list, :formation_year #class attributes
 
-#contructor method, contructs new class objects
+  #contructor method, contructs new class objects
   def initialize(formation_year_input)#parameters
     #instance var
     @planets_list = []
-    @formation_year = formation_year_input#method arguemnt(fart)
+    @formation_year = formation_year_input#method arguemnt(disappears)
   end
 
   #new method within the SolarSystem class - could this also be organized to be in class Planet and THEN added to planets_list?
-   #why not? because scope - with this structure, hash req'd and it was created om Planet class, not ss class.
+  #why not? because scope - with this structure, hash req'd and it was created om Planet class, not ss class.
 
   def add_planet(planet_obj)#parameter
     @planets_list.push(planet_obj)#push method with argument of "planet_object"
@@ -22,7 +22,7 @@ end
 class Planet
   attr_reader :name, :orbital, :mass_in_earths, :moons, :distance_from_sun #class attributes
 
-#new method that utilizes/accesses hash
+  #new method that utilizes/accesses hash
   def initialize(planet_hash)
     @name = planet_hash[:name]
     @orbital = planet_hash[:orbital]
@@ -31,7 +31,7 @@ class Planet
     @distance_from_sun = planet_hash[:distance_from_sun]
   end
 
-#new method that accesses instance vars within class:Planet
+  #new method that accesses instance vars within class:Planet
   def planet_info #(there's no parameter here)
     puts "#{@name} has #{@orbital} days in one of its years, weighs #{@mass} earth, has #{@moons}, and is #{@distance_from_sun} million miles from the sun."
   end
@@ -61,7 +61,7 @@ mercury_hash = {
 earth_hash = {
   name: "Earth",
   orbital: 365,
-  moons: "1 plus new mini-moon! #https://sservi.nasa.gov/articles/simulations-show-mini-moons-orbiting-earth/",
+  moons: "1, plus new mini-moon! #https://sservi.nasa.gov/articles/simulations-show-mini-moons-orbiting-earth/",
   mass_in_earths: 1.0,
   distance_from_sun: 92.96
 }
@@ -135,7 +135,7 @@ juice_box.planets_list.last.planet_info
 #*******SHIT THAT DIDN'T WORK LIVES BELOW THIS LINE******
 # venus = Planet.new("Venus", "225", ".815", "none", "67.24 million mi")
 #
-# earth = Planet.new("Earth", "365", "1", "1 plus new mini-moon! #https://sservi.nasa.gov/articles/simulations-show-mini-moons-orbiting-earth/", "92.96 million mi")
+# earth = Planet.new("Earth", "365", "1", "1 plus new mini-moon! #", "92.96 million mi")
 #
 # mars = Planet.new("Mars", "687", ".107", "2", "141.6 million mi")
 #
